@@ -16,9 +16,10 @@ class LoginSystem
 			cin>>password;
 			ifstream file("data.txt");
 			
-			while(file>>user>>pass){
-				
-				if(username == user){
+			while(file>>user>>pass)
+			{
+				if(username == user)
+				{
 					found = true;
 				}
 			}
@@ -31,32 +32,29 @@ class LoginSystem
 			else{
 				ofstream file("data.txt",ios::app);
 				
-				file<<username<<" "<<password<<endl;
-				
+				file<<username<<"  "<<password<<endl;
 				file.close();
 				
 				cout<<"Registration Successful"<<endl;
 			}
 		}
 		
-		void loginUser(){
+		void loginUser()
+{
 			
 			string user, pass;
 			bool login = false;
 			
 			cout<<"Enter Username: ";
 			cin>>username;
-			
 			cout<<"Enter Password: ";
 			cin>>password;
-			
 			ifstream file("data.txt");
-			
-			while(file>>user>>pass){
-				
+			while(file>>user>>pass)
+			{	
 				if(username == user && password == pass){
 					login = true;
-				}
+			}
 			}
 			
 			file.close();
@@ -70,33 +68,37 @@ class LoginSystem
 		}
 };
 
-int main(){
-	
+int main(){	
 	LoginSystem l;
 	int choice;
-	
-	do{
-		cout<<endl;
-		cout<<"1. Register"<<endl;
-		cout<<"2. Login"<<endl;
-		cout<<"3. Exit"<<endl;
-		cout<<"Enter Choice: ";
-		cin>>choice;
+
+do
+	{
+	cout<<endl;
+	cout<<"1. Register"<<endl;
+	cout<<"2. Login"<<endl;
+	cout<<"3. Exit"<<endl;
+	cout<<"Enter Choice: ";
+	cin>>choice;
 		
-		if(choice == 1){
-			l.registerUser();
+	if(choice == 1)
+	{
+		l.registerUser();
 		}
-		else if(choice == 2){
+		else if(choice == 2)
+		{
 			l.loginUser();
 		}
 		else if(choice == 3){
 			cout<<"Program Ended"<<endl;
 		}
-		else{
-			cout<<"Invalid Choice"<<endl;
-		}
+		else
+		{
+			cout<<" Invalid choice"<<endl;
+	}
 		
-	}while(choice != 3);
+}
+		while(choice != 3);
 	
 	return 0;
 }
